@@ -1,0 +1,76 @@
+@import "lib/fullPage"
+@import "lib/fancyBox.min"
+@import "lib/animate.min"
+
+//FullPage
+#fp-nav ul li, .fp-slidesNav ul li
+	outline: none
+	&:hover
+
+
+#fp-nav
+	ul
+		li
+			width: 20px
+			height: 1px
+			padding: 7px 0
+			&:hover
+				a
+					span
+						width: 20px
+						height: 1px
+						margin: -2px 0 0 -2px
+					&.active
+						span
+							width: 45px
+							height: 1px
+							margin: -2px 0 0 -2px
+			a
+				&.active
+					span
+						width: 45px
+						height: 1px
+						margin: -2px 0 0 -2px
+						background-color: #fff
+						border-radius: 0
+						transition: width .2s linear
+				span
+					width: 20px
+					height: 1px
+					border-radius: 0
+
+.fp-controlArrow
+	display: none !important
+	bottom: 70px
+	top: auto
+	transform: translateX(-50%)
+	&.fp-next, &.fp-prev
+		border: 0
+		&::before
+			font-family: FontAwesome
+			font-size: 28px
+			opacity: .15
+			+tr(.15s)
+		&:hover
+			&::before
+				opacity: .7
+	&.fp-next
+		right: 50%
+		margin-right: -20px
+		&::before
+			content: '\f105'
+	&.fp-prev
+		margin-left: -20px
+		left: 50%
+		&::before
+			content: '\f104'
+
+//Modal Window
+.fancybox-is-open
+	.fancybox-bg
+		opacity: 0.6
+.compensate-for-scrollbar
+	margin-right: 5px !important
+.fancybox-close-small:hover:after
+	background-color: transparent
+	color: #fff

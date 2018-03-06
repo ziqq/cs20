@@ -1,0 +1,233 @@
+=f
+	font-family: 'Roboto', sans-serif
+
+//Vars
+$color-accent: #A00A90
+$color-secondary: #ffe100
+$color-third: #f90000
+$color-four: #445bf7
+
+body
+	+f
+	font-size: 16px
+	line-height: 1.4
+	color: #fff
+	background-color: #020303
+	overflow-x: hidden
+	+css-lock(16, 50, 600, 1000)
+	+smooth-scroll
+	+smooth-font
+
+img
+	display: block
+	width: 100%
+
+a
+	text-decoration: none
+
+.logo
+	width: 120px
+	position: absolute
+	top: 25px
+	left: 25px
+	z-index: 99
+
+.text-accent
+	color: $color-accent
+
+.block-bg
+	display: inline-block
+	padding: 0 9px 0 5px
+	&--purple
+		background-color: $color-accent
+	&--yellow
+		background-color: $color-secondary
+	&--red
+		background-color: $color-third
+	&--blue
+		background-color: $color-four
+	&--white
+		background-color: #fff
+	&--animate
+		margin-bottom: -12px
+		overflow: hidden
+		background-color: transparent
+		position: relative
+		&::before
+			content: ''
+			display: block
+			+coverdiv
+			background-color: $color-accent
+			transform: translateX(-100%)
+			+tr(3s)
+		&::after
+			content: attr(data-num)
+			display: block
+			+coverdiv
+			color: #fff
+			z-index: 999
+		&-1
+			&::before
+				transition-delay: 2.5s
+		&-2
+			&::before
+				transition-delay: 3s
+		&-3
+			&::before
+				transition-delay: 3.5s
+
+
+.section
+	overflow: hidden
+	&.active
+		.slide
+			&.active
+				.subtitle
+					opacity: 1
+					transform: translateY(0)
+				.title__row, .title__sub
+					opacity: 1
+					transform: translateX(0)
+				.desc__row, .video-link, .video-link span
+					opacity: 1
+					transform: translateX(0)
+				.block-bg--animate
+					&::before
+						transform: translateX(0)
+
+
+	&--reverse
+		.title__row
+			transform: translateX(100%)
+
+		.section__bg, .slide, 
+			background-position: left bottom
+			margin-left: auto
+		.content
+			margin-right: 13%
+			text-align: right
+			align-items: flex-end
+			+r(1400)
+				margin-right: 15%
+		.video-link
+			&__icon
+				right: auto
+				left: 0
+		.slide--10prc
+			background-position: 10% bottom
+			+r(1400)
+				background-position: left bottom
+
+
+			
+
+.slide	
+	text-transform: uppercase
+	background-position: right bottom
+	background-repeat: no-repeat
+	background-size: contain
+
+
+.content
+	display: flex
+	flex-direction: column
+	align-items: baseline
+	margin-left: 13%
+	+r(1400)
+		margin-left: 15%
+
+.subtitle
+	margin-bottom: 115px
+	font-weight: bold
+	font-size: 22px
+	transform: translateY(-100%)
+	opacity: 0
+	+tr(1s)
+	transition-delay: 1s
+	+r(1400)
+		margin-bottom: 65px
+
+.title
+	margin-bottom: 135px
+	font-size: 75px
+	line-height: 1.2
+	display: inline-flex
+	flex-direction: column
+	+r(1400)
+		margin-bottom: 90px
+	&__sub
+		margin-left: auto
+		margin-bottom: 5px
+		font-size: 28px
+		transform: translateX(100%)
+		opacity: 0
+		+tr(1s)
+		position: absolute
+		top: -40px
+		right: 0
+	&__row
+		line-height: 1
+		position: relative
+		transform: translateX(-100%)
+		opacity: 0
+		+tr(1s)
+		transition-delay: 1.5s			
+		&:nth-child(2)
+			transition-delay: 2s
+		&:nth-child(3)
+			transition-delay: 2.5s
+		& + &
+			margin-top: 10px
+		.block-bg
+			&--yellow, &--red, &--blue, &--white
+				color: #000
+	small
+		display: block
+		font-size: 50px
+
+.desc
+	text-transform: uppercase
+	font-weight: bold
+	font-size: 33px
+	line-height: 1.4
+	&__row
+		transform: translateY(100%)
+		opacity: 0
+		+tr(1s)
+		transition-delay: 3s
+		&:nth-child(2)
+			transition-delay: 3.5s
+		&:nth-child(3)
+			transition-delay: 4s
+	span
+		display: block
+
+
+.video-link
+	display: inline-block
+	text-transform: uppercase
+	font-weight: bold
+	font-size: 33px
+	line-height: 1.2
+	color: #fff
+	transform: translateY(100%)
+	opacity: 0
+	+tr(1s)
+	transition-delay: 3s
+	span
+		display: block
+		position: relative
+		transform: translateY(100%)
+		opacity: 0
+		+tr(1s)
+		transition-delay: 3.5s
+	&__icon
+		content: ''
+		display: block
+		+s(yb)
+		position: absolute
+		right: 0
+		top: 5px
+
+		animation-duration: 2.5s
+		animation-delay: 20s
