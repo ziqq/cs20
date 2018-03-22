@@ -78,31 +78,35 @@ a
 
 
 .section
+	text-transform: uppercase
+	background-position: right bottom
+	background-repeat: no-repeat
+	background-size: contain
 	overflow: hidden
 	&.active
-		.slide
-			&.active
-				.subtitle
-					opacity: 1
-					transform: translateY(0)
-				.title__row, .title__sub
-					opacity: 1
-					transform: translateX(0)
-				.desc__row, .video-link, .video-link span
-					opacity: 1
-					transform: translateX(0)
-				.block-bg--animate
-					&::before
-						transform: translateX(0)
+		.subtitle
+			opacity: 1
+			transform: translateY(0)
+		.title__row, .title__sub
+			opacity: 1
+			transform: translateX(0)
+		.desc__row, .video-link, .video-link span
+			opacity: 1
+			transform: translateX(0)
+		.block-bg--animate
+			&::before
+				transform: translateX(0)
+	&.prc-10
+		background-position: 10% bottom
+		+r(1400)
+			background-position: left bottom
 
 
 	&--reverse
+		background-position: left bottom
+		margin-left: auto
 		.title__row
 			transform: translateX(100%)
-
-		.section__bg, .slide, 
-			background-position: left bottom
-			margin-left: auto
 		.content
 			margin-right: 13%
 			text-align: right
@@ -113,19 +117,6 @@ a
 			&__icon
 				right: auto
 				left: 0
-		.slide--10prc
-			background-position: 10% bottom
-			+r(1400)
-				background-position: left bottom
-
-
-			
-
-.slide	
-	text-transform: uppercase
-	background-position: right bottom
-	background-repeat: no-repeat
-	background-size: contain
 
 
 .content
